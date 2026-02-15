@@ -21,31 +21,37 @@ export default function AboutPage() {
     {
       role: "Group Product Manager",
       company: "Bristol Myers Squibb",
+      companyHref: "https://www.bms.com/",
       years: "2020–2025",
     },
     {
       role: "Product Manager",
-      company: "OneLegal (an Infotrack company)",
+      company: "OneLegal (an InfoTrack company)",
+      companyHref: "https://www.onelegal.com/",
       years: "2020",
     },
     {
       role: "Full Stack Developer & Data Engineer",
       company: "Amy's Kitchen",
+      companyHref: "https://www.amys.com/",
       years: "2017–2020",
     },
     {
       role: "Product Manager",
       company: "Renovate America",
+      companyHref: "https://www.renovateamerica.com/",
       years: "2016",
     },
     {
       role: "Product + Growth",
       company: "LINE",
+      companyHref: "https://line.me/",
       years: "2014–2016",
     },
     {
       role: "Intern",
       company: "Samsung",
+      companyHref: "https://www.samsung.com/",
       years: "2012, 2013",
     },
   ] as const;
@@ -64,7 +70,7 @@ export default function AboutPage() {
               Previously built internal platforms at Bristol Myers Squibb,
               specializing in agentic framework development and data +
               knowledge platforms. Before that, I spent time as a full stack
-              developer and data engineer at Amy's Kitchen supporting business
+              developer and data engineer at Amy&apos;s Kitchen supporting business
               operations.
             </p>
             <p>
@@ -72,7 +78,7 @@ export default function AboutPage() {
               and embraced a nomadic lifestyle. Having explored 20+ countries, 
               I love to travel. 
 
-              When I'm not building, you can find me in the mountains (hiking/skiing), 
+              When I&apos;m not building, you can find me in the mountains (hiking/skiing), 
               on the golf course, tennis court, working on cars, or spending
               quality time with family and friends.
             </p>
@@ -143,9 +149,17 @@ export default function AboutPage() {
             {pastWork.map((item) => (
               <div
                 key={`${item.role} ${item.company} ${item.years}`}
-                className="text-[13px] font-medium text-foreground"
+                className="text-[13px] font-normal text-foreground"
               >
-                {item.role} at {item.company}{" "}
+                {item.role} at{" "}
+                <a
+                  href={item.companyHref}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="underline underline-offset-4 decoration-border hover:opacity-90 transition"
+                >
+                  {item.company}
+                </a>{" "}
                 <span className="text-[12px] font-normal text-muted">
                   ({item.years})
                 </span>
@@ -153,10 +167,6 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
-
-        {/* <footer className="pb-14 pt-6 text-[12px] text-muted">
-          Always be building.
-        </footer> */}
       </div>
     </main>
   );

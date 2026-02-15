@@ -28,6 +28,7 @@ export default function LogoMark({
   const fallback = useMemo(() => {
     const trimmed = fallbackText.trim();
     if (!trimmed) return "?";
+    if (/^[A-Za-z0-9]{1,4}$/.test(trimmed)) return trimmed.toUpperCase();
     return trimmed
       .split(/\s+/)
       .slice(0, 2)

@@ -21,9 +21,9 @@ export default function WorkPage() {
     <main className="bg-background text-foreground">
       <div className="mx-auto max-w-[760px] px-6 sm:px-8">
         <section className="pt-10 sm:pt-12">
-          <h1 className="text-2xl font-semibold tracking-tight">Work</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">Select Work</h1>
           <p className="mt-4 text-[13px] leading-6 text-muted">
-            A few projects and themes I’ve spent time on.
+            A few projects and themes I’ve spent time on. More coming soon.
           </p>
         </section>
 
@@ -43,10 +43,6 @@ export default function WorkPage() {
             ))}
           </div>
         </section>
-
-        <footer className="pb-14 pt-6 text-[12px] text-muted">
-          © {new Date().getFullYear()} Tim Lapinskas
-        </footer>
       </div>
     </main>
   );

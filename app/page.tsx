@@ -53,15 +53,18 @@ export default function Home() {
 
   const writing = [
     {
-      title: "Designing AI Platforms for Researchers",
+      title: "My First Product: Building a BMW E30",
       date: "Coming soon",
       href: "#writing",
+      logoCandidates: [
+        "/logos/bmw.png",
+      ],
     },
-    {
-      title: "From Engineer to Product Leader",
-      date: "Coming soon",
-      href: "#writing",
-    },
+    // {
+    //   title: "From Engineer to Product Leader",
+    //   date: "Coming soon",
+    //   href: "#writing",
+    // },
   ] as const;
 
   const videos = [
@@ -89,7 +92,7 @@ export default function Home() {
   ] as const;
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="bg-background text-foreground">
       <div className="mx-auto max-w-[760px] px-6 sm:px-8">
         {/* Header */}
         <header className="pt-10 sm:pt-12">
@@ -121,10 +124,10 @@ export default function Home() {
                 Previously built internal platforms at Bristol Myers Squibb,
                 specializing in agentic framework development and data +
                 knowledge platforms. Before that, I spent time as a full stack
-                developer and data engineer at Amy's Kitchen supporting their
-                business operations. Started my career in Product working on
-                the LINE mobile app and new bets.
-              </p>
+	                developer and data engineer at Amy&apos;s Kitchen supporting their
+	                business operations. Started my career in Product working on
+	                the LINE mobile app and new bets.
+	              </p>
               <p>I love working on compelling products with talented teams.</p>
               <p>Based in San Francisco.</p>
             </div>
@@ -197,8 +200,7 @@ export default function Home() {
 
         <div className="border-t border-border" />
 
-        {/*
-        // Writing (disabled for now)
+        {/* Writing */}
         <section id="writing" className="py-10">
           <h2 className="text-sm font-semibold tracking-tight">Writing</h2>
 
@@ -209,7 +211,17 @@ export default function Home() {
                 href={post.href}
                 className="group flex items-center gap-3 rounded-lg px-2 py-2 hover:bg-card-muted transition"
               >
-                <div className="h-10 w-10 shrink-0 rounded-md bg-slate-100 ring-1 ring-border" />
+                {"logoCandidates" in post ? (
+                  <LogoMark
+                    srcCandidates={post.logoCandidates}
+                    alt={`${post.title} logo`}
+                    size={40}
+                    fallbackText="BMW"
+                    className="shrink-0"
+                  />
+                ) : (
+                  <div className="h-10 w-10 shrink-0 rounded-md bg-slate-100 ring-1 ring-border" />
+                )}
                 <div className="min-w-0">
                   <div className="text-[13px] font-medium text-foreground">
                     {post.title}
@@ -225,6 +237,7 @@ export default function Home() {
 
         <div className="border-t border-border" />
 
+        {/*
         // Videos (disabled for now)
         <section id="videos" className="py-10">
           <h2 className="text-sm font-semibold tracking-tight">Videos</h2>
@@ -280,10 +293,6 @@ export default function Home() {
             </p>
           </div>
         </section> */}
-
-        <footer className="pb-14 pt-6 text-[12px] text-muted">
-          © {new Date().getFullYear()} Tim Lapinskas
-        </footer>
       </div>
     </main>
   );

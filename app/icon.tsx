@@ -58,12 +58,13 @@ export default async function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#ffffff",
+          background: "transparent",
         }}
       >
         {dataUrl ? (
           <img
             src={dataUrl}
+            alt=""
             width={32}
             height={32}
             style={{
