@@ -32,13 +32,11 @@ export default function WorkPage() {
           <h1 className="text-2xl font-semibold tracking-tight">Select Work</h1>
           <div className="mt-6 space-y-4 text-[13px] leading-6 text-muted">
             <p>
-              Building AI platforms and internal products across financial
-              services and biopharma.
+              Rethinking the Schwab brokerage experience with GenAI and crafting the company's AI platform vision & strategy.
             </p>
             <p>
-              Focused on accelerating application development with strong
-              governance, reusable primitives, and practical workflows teams
-              actually adopt.
+              Focused on building novel product experiences and helping developers become more productive. 
+              Shipping products that customers and teams actually adopt.
             </p>
             <p>Interested in learning more?</p>
           </div>
