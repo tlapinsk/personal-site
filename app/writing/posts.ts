@@ -16,8 +16,8 @@ export const writingPosts: readonly WritingPost[] = [
     title: "The $1 BMW That Taught Me How to Build",
     description:
       "A $1 E30, a decade of wrenching, and the lessons about constraints, systems thinking, and iteration that carried into product building.",
-    dateLabel: "March 3, 2026",
-    readTimeLabel: "2 mins",
+    dateLabel: "March 2, 2026",
+    readTimeLabel: "4-5 mins",
     heroSrc: "/writing/bmw-e30-hero.jpg",
     iconCandidates: [
       "/logos/bmw.png",
