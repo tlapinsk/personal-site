@@ -1,5 +1,6 @@
 import Avatar from "./components/Avatar";
 import LogoMark from "./components/LogoMark";
+import { writingPosts } from "./writing/posts";
 
 export default function Home() {
   const building = [
@@ -49,22 +50,6 @@ export default function Home() {
         "/logos/line.png",
       ],
     },
-  ] as const;
-
-  const writing = [
-    {
-      title: "My First Product: Building a BMW E30",
-      date: "Coming soon",
-      href: "#writing",
-      logoCandidates: [
-        "/logos/bmw.png",
-      ],
-    },
-    // {
-    //   title: "From Engineer to Product Leader",
-    //   date: "Coming soon",
-    //   href: "#writing",
-    // },
   ] as const;
 
   const videos = [
@@ -205,18 +190,18 @@ export default function Home() {
           <h2 className="text-sm font-semibold tracking-tight">Writing</h2>
 
           <div className="mt-4 space-y-2">
-            {writing.map((post) => (
+            {writingPosts.map((post) => (
               <a
                 key={post.title}
-                href={post.href}
+                href={`/writing/${post.slug}`}
                 className="group flex items-center gap-3 rounded-lg px-2 py-2 hover:bg-card-muted transition"
               >
-                {"logoCandidates" in post ? (
+                {post.iconCandidates?.length ? (
                   <LogoMark
-                    srcCandidates={post.logoCandidates}
-                    alt={`${post.title} logo`}
+                    srcCandidates={post.iconCandidates}
+                    alt=""
                     size={40}
-                    fallbackText="BMW"
+                    fallbackText={post.iconFallbackText ?? post.title}
                     className="shrink-0"
                   />
                 ) : (
@@ -226,9 +211,7 @@ export default function Home() {
                   <div className="text-[13px] font-medium text-foreground">
                     {post.title}
                   </div>
-                  <div className="mt-0.5 text-[12px] text-muted">
-                    {post.date}
-                  </div>
+                  <div className="mt-0.5 text-[12px] text-muted">{post.dateLabel}</div>
                 </div>
               </a>
             ))}

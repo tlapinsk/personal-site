@@ -7,6 +7,7 @@ import Avatar from "./Avatar";
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/writing", label: "Writing" },
   { href: "/work", label: "Work" },
 ] as const;
 
@@ -20,7 +21,7 @@ export default function NavBar() {
         <Link href="/" aria-label="Home" className="shrink-0">
           <Avatar
             srcCandidates={
-              isHome ? undefined : ["/profile.webp", "/profile.png", "/profile.jpg", "/profile.jpeg"]
+              isHome ? undefined : ["/profile.jpg"]
             }
             alt="Tim Lapinskas"
             size={28}
@@ -31,7 +32,9 @@ export default function NavBar() {
 
         <nav className="flex items-center gap-6 text-[12px] text-muted">
           {links.map((link) => {
-            const active = pathname === link.href;
+            const active =
+              pathname === link.href ||
+              (link.href !== "/" && pathname.startsWith(link.href + "/"));
             return (
               <Link
                 key={link.href}
