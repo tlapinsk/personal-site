@@ -20,10 +20,7 @@ export const writingPosts: readonly WritingPost[] = [
     readTimeLabel: "2 mins",
     heroSrc: "/writing/bmw-e30-hero.jpg",
     iconCandidates: [
-      "/logos/bmw.svg",
       "/logos/bmw.png",
-      "/logos/bmw.jpg",
-      "/logos/bmw.jpeg",
     ],
     iconFallbackText: "BMW",
     body: [
