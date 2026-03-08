@@ -149,7 +149,8 @@ export default function AboutPage() {
     <main className="bg-background text-foreground">
       <div className="mx-auto max-w-[760px] px-6 sm:px-8">
         <section className="pt-10 sm:pt-12">
-          <div className="space-y-6 text-[13px] leading-6 text-muted">
+          <h1 className="text-2xl font-semibold tracking-tight">About</h1>
+          <div className="mt-6 space-y-6 text-[13px] leading-6 text-muted">
             <p>
               Building at the intersection of financial services and AI at
               Charles Schwab to rethink the brokerage experience and
