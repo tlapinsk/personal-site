@@ -3,8 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const dynamic = "force-static";
 
 export const size = {
   width: 32,
@@ -13,41 +12,15 @@ export const size = {
 
 export const contentType = "image/png";
 
-function extToMime(ext: string) {
-  switch (ext) {
-    case ".png":
-      return "image/png";
-    case ".jpg":
-    case ".jpeg":
-      return "image/jpeg";
-    case ".webp":
-      return "image/webp";
-    default:
-      return "application/octet-stream";
-  }
-}
-
-async function readProfileImageDataUrl() {
-  const candidates = ["profile.png", "profile.jpg", "profile.jpeg", "profile.webp"];
+async function readProfileJpegDataUrl() {
   const publicDir = path.join(process.cwd(), "public");
-
-  for (const filename of candidates) {
-    try {
-      const fullPath = path.join(publicDir, filename);
-      const buf = await readFile(fullPath);
-      const mime = extToMime(path.extname(filename).toLowerCase());
-      const base64 = buf.toString("base64");
-      return `data:${mime};base64,${base64}`;
-    } catch {
-      // ignore and try next candidate
-    }
-  }
-
-  return null;
+  const fullPath = path.join(publicDir, "profile.jpg");
+  const buf = await readFile(fullPath);
+  return `data:image/jpeg;base64,${buf.toString("base64")}`;
 }
 
 export default async function Icon() {
-  const dataUrl = await readProfileImageDataUrl();
+  const dataUrl = await readProfileJpegDataUrl();
 
   return new ImageResponse(
     (
@@ -61,36 +34,16 @@ export default async function Icon() {
           background: "transparent",
         }}
       >
-        {dataUrl ? (
-          <img
-            src={dataUrl}
-            alt=""
-            width={32}
-            height={32}
-            style={{
-              borderRadius: 9999,
-              objectFit: "cover",
-            }}
-          />
-        ) : (
-          <div
-            style={{
-              width: 32,
-              height: 32,
-              borderRadius: 9999,
-              background: "linear-gradient(135deg, #e2e8f0, #f8fafc)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#334155",
-              fontSize: 12,
-              fontWeight: 700,
-              border: "1px solid #e5e7eb",
-            }}
-          >
-            TL
-          </div>
-        )}
+        <img
+          src={dataUrl}
+          alt=""
+          width={32}
+          height={32}
+          style={{
+            borderRadius: 9999,
+            objectFit: "cover",
+          }}
+        />
       </div>
     ),
     size,
