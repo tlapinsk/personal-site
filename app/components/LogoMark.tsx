@@ -61,7 +61,9 @@ export default function LogoMark({
       alt={alt}
       width={size}
       height={size}
-      className={"rounded-md object-cover ring-1 ring-border " + (className ?? "")}
+      className={
+        "block rounded-md object-cover ring-1 ring-border " + (className ?? "")
+      }
       onError={() => {
         const nextIndex = index + 1;
         if (nextIndex < candidates.length) setIndex(nextIndex);

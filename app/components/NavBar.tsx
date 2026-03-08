@@ -18,7 +18,11 @@ export default function NavBar() {
   return (
     <header className="pt-10">
       <div className="mx-auto flex max-w-[760px] items-center justify-between px-6 sm:px-8">
-        <Link href="/" aria-label="Home" className="shrink-0">
+        <Link
+          href="/"
+          aria-label="Home"
+          className="flex h-7 items-center shrink-0"
+        >
           <Avatar
             srcCandidates={
               isHome ? undefined : ["/profile.jpg"]
@@ -41,7 +45,7 @@ export default function NavBar() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={
-                  "underline-offset-4 decoration-border hover:text-foreground transition " +
+                  "inline-flex h-7 items-center underline-offset-4 decoration-border hover:text-foreground transition " +
                   (active ? "text-foreground underline" : "")
                 }
               >

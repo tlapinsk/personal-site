@@ -77,7 +77,9 @@ export default function Avatar({
       alt={alt}
       width={size}
       height={size}
-      className={rounding + " object-cover border border-border " + (className ?? "")}
+      className={
+        rounding + " block object-cover border border-border " + (className ?? "")
+      }
       onError={() => {
         const nextIndex = index + 1;
         if (nextIndex < candidates.length) setIndex(nextIndex);
