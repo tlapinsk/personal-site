@@ -46,3 +46,15 @@ body {
     "Apple Color Emoji",
     "Segoe UI Emoji";
 }
+
+a {
+  transition:
+    color 150ms ease,
+    text-decoration-color 150ms ease,
+    text-decoration-thickness 150ms ease;
+}
+
+a:hover {
+  text-decoration-color: var(--foreground);
+  text-decoration-thickness: 1px;
+}
