@@ -59,7 +59,7 @@ export default function Avatar({
         className={
           "grid place-items-center " +
           rounding +
-          " bg-gradient-to-br from-slate-200 to-slate-50 ring-1 ring-border text-[11px] font-semibold text-slate-700 " +
+          " bg-gradient-to-br from-slate-200 to-slate-50 border border-border text-[11px] font-semibold text-slate-700 " +
           (className ?? "")
         }
         style={{ width: size, height: size }}
@@ -77,7 +77,7 @@ export default function Avatar({
       alt={alt}
       width={size}
       height={size}
-      className={rounding + " object-cover ring-1 ring-border " + (className ?? "")}
+      className={rounding + " object-cover border border-border " + (className ?? "")}
       onError={() => {
         const nextIndex = index + 1;
         if (nextIndex < candidates.length) setIndex(nextIndex);
