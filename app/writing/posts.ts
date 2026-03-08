@@ -10,6 +10,38 @@ export type WritingPost = {
   body?: readonly string[];
 };
 
+function assertUnique<T>(
+  items: readonly T[],
+  toKey: (item: T) => string,
+  label: string,
+) {
+  const seen = new Set<string>();
+  for (const item of items) {
+    const key = toKey(item);
+    if (seen.has(key)) throw new Error(`Duplicate ${label}: ${key}`);
+    seen.add(key);
+  }
+}
+
+function validateWritingPosts(posts: readonly WritingPost[]) {
+  assertUnique(posts, (p) => p.slug, "writing post slug");
+
+  for (const post of posts) {
+    if (!post.slug.trim()) throw new Error("Writing post slug is empty");
+    if (!post.title.trim()) throw new Error(`Writing post title is empty (${post.slug})`);
+    if (!post.dateLabel.trim())
+      throw new Error(`Writing post dateLabel is empty (${post.slug})`);
+
+    if (post.body) {
+      for (const [index, paragraph] of post.body.entries()) {
+        if (!paragraph.trim()) {
+          throw new Error(`Empty paragraph in post body (${post.slug}, index ${index})`);
+        }
+      }
+    }
+  }
+}
+
 export const writingPosts: readonly WritingPost[] = [
   {
     slug: "my-first-product-bmw-e30",
@@ -63,3 +95,5 @@ export const writingPosts: readonly WritingPost[] = [
     ],
   },
 ] as const;
+
+validateWritingPosts(writingPosts);
