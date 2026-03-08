@@ -32,7 +32,8 @@ export default function WorkPage() {
           <h1 className="text-2xl font-semibold tracking-tight">Select Work</h1>
           <div className="mt-6 space-y-4 text-[13px] leading-6 text-muted">
             <p>
-              Rethinking the Schwab brokerage experience with GenAI and crafting the company's AI platform vision & strategy.
+              Rethinking the Schwab brokerage experience with GenAI and crafting
+              the company&apos;s AI platform vision & strategy.
             </p>
             <p>
               Focused on building novel product experiences and helping developers become more productive. 

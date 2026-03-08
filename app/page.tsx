@@ -52,30 +52,6 @@ export default function Home() {
     },
   ] as const;
 
-  const videos = [
-    {
-      title: "Building AI Platforms That Scale",
-      description:
-        "How to set strategy, align incentives, and build durable systems that compound over time.",
-      href: "#videos",
-      cta: "Watch",
-    },
-    {
-      title: "From Data to Decisions",
-      description:
-        "Practical approaches to building research and data platforms that teams actually adopt.",
-      href: "#videos",
-      cta: "Watch",
-    },
-    {
-      title: "Operating Models for GenAI",
-      description:
-        "Governance patterns that balance velocity with safety, compliance, and real business outcomes.",
-      href: "#videos",
-      cta: "Watch",
-    },
-  ] as const;
-
   return (
     <main className="bg-background text-foreground">
       <div className="mx-auto max-w-[760px] px-6 sm:px-8">
