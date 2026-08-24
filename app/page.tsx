@@ -86,7 +86,7 @@ export default function Home() {
                 Previously led enterprise GenAI and research data platform products at Bristol Myers Squibb, 
                   helping computational research teams find, understand, and use complex scientific data & 
                   knowledge more effectively. In my early career, I spent time as a full stack
-	                developer and data engineer at Amy's Kitchen supporting their
+		                developer and data engineer at Amy&apos;s Kitchen supporting their
 	                business operations. Started my career in Product working on
 	                the LINE mobile app and new bets.
 	              </p>
