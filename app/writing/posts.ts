@@ -1,6 +1,9 @@
+import wordpressPostsJson from "./wordpress-posts.json";
+
 export type WritingPost = {
   slug: string;
   title: string;
+  date: string;
   dateLabel: string;
   readTimeLabel?: string;
   description?: string;
@@ -8,7 +11,64 @@ export type WritingPost = {
   iconCandidates?: readonly string[];
   iconFallbackText?: string;
   body?: readonly string[];
+  contentHtml?: string;
+  sourceUrl?: string;
 };
+
+type WordpressPost = {
+  ID: number;
+  date: string;
+  slug: string;
+  title: string;
+  content: string;
+  excerpt: string;
+  URL: string;
+};
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+function decodeHtmlEntities(text: string) {
+  return text
+    .replace(/&#(\d+);/g, (_, codePoint: string) =>
+      String.fromCodePoint(Number.parseInt(codePoint, 10)),
+    )
+    .replace(/&#x([\da-f]+);/gi, (_, codePoint: string) =>
+      String.fromCodePoint(Number.parseInt(codePoint, 16)),
+    )
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&nbsp;/g, " ");
+}
+
+function stripHtml(html: string) {
+  return decodeHtmlEntities(
+    html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim(),
+  );
+}
+
+function toDateLabel(date: string) {
+  return dateFormatter.format(new Date(date));
+}
+
+const wordpressPosts = (wordpressPostsJson.posts as WordpressPost[]).map(
+  (post): WritingPost => ({
+    slug: post.slug,
+    title: decodeHtmlEntities(post.title),
+    description: stripHtml(post.excerpt),
+    date: post.date,
+    dateLabel: toDateLabel(post.date),
+    contentHtml: post.content,
+    sourceUrl: post.URL,
+  }),
+);
 
 function assertUnique<T>(
   items: readonly T[],
@@ -48,6 +108,7 @@ export const writingPosts: readonly WritingPost[] = [
     title: "The $1 BMW That Taught Me How to Build",
     description:
       "A $1 E30, a decade of wrenching, and the lessons about constraints, systems thinking, and iteration that carried into product building.",
+    date: "2026-03-02T00:00:00+00:00",
     dateLabel: "March 2, 2026",
     readTimeLabel: "4-5 mins",
     heroSrc: "/writing/bmw-e30-hero.jpg",
@@ -94,6 +155,22 @@ export const writingPosts: readonly WritingPost[] = [
       "Start with a vision. Respect the constraints. Keep learning how the system works. And keep turning the wrench until it starts to feel right.",
     ],
   },
+  ...wordpressPosts,
 ] as const;
+
+export const archivedWritingPosts = writingPosts;
+
+export const writingArchive = Object.entries(
+  archivedWritingPosts.reduce<Record<string, WritingPost[]>>((archive, post) => {
+    const year = new Date(post.date).getUTCFullYear().toString();
+    archive[year] = [...(archive[year] ?? []), post];
+    return archive;
+  }, {}),
+)
+  .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+  .map(([year, posts]) => ({
+    year,
+    posts,
+  }));
 
 validateWritingPosts(writingPosts);

@@ -58,3 +58,80 @@ a:hover {
   text-decoration-color: var(--foreground);
   text-decoration-thickness: 1px;
 }
+
+.wp-post-content > * + * {
+  margin-top: 1.5rem;
+}
+
+.wp-post-content a {
+  color: var(--foreground);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--border);
+}
+
+.wp-post-content ul,
+.wp-post-content ol {
+  padding-left: 1.25rem;
+}
+
+.wp-post-content ul {
+  list-style: disc;
+}
+
+.wp-post-content ol {
+  list-style: decimal;
+}
+
+.wp-post-content li + li {
+  margin-top: 0.35rem;
+}
+
+.wp-post-content pre {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--card-muted);
+  padding: 1rem;
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.wp-post-content code {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+}
+
+.wp-post-content img {
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+}
+
+.wp-post-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.wp-post-content th,
+.wp-post-content td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.65rem;
+}
+
+.wp-post-content th {
+  color: var(--foreground);
+  font-weight: 600;
+}

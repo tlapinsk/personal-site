@@ -77,6 +77,12 @@ export async function generateMetadata({
   };
 }
 
+export function generateStaticParams() {
+  return writingPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default async function WritingPostPage({
   params,
 }: {
@@ -118,11 +124,35 @@ export default async function WritingPostPage({
         <div className="mt-12 border-t border-border" />
 
         <section className="py-10">
-          <article className="space-y-6 text-[14px] leading-7 text-muted">
-            {(post.body ?? []).map((paragraph) => (
-              <p key={paragraph.slice(0, 32)}>{renderParagraphWithLinks(paragraph)}</p>
-            ))}
-          </article>
+          {post.contentHtml ? (
+            <article
+              className="wp-post-content text-[14px] leading-7 text-muted"
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            />
+          ) : (
+            <article className="space-y-6 text-[14px] leading-7 text-muted">
+              {(post.body ?? []).map((paragraph) => (
+                <p key={paragraph.slice(0, 32)}>
+                  {renderParagraphWithLinks(paragraph)}
+                </p>
+              ))}
+            </article>
+          )}
+
+          {post.sourceUrl ? (
+            <p className="mt-10 border-t border-border pt-6 text-[12px] text-muted">
+              Originally published on{" "}
+              <a
+                href={post.sourceUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="underline underline-offset-4 decoration-border hover:text-foreground"
+              >
+                tlapinsk.wordpress.com
+              </a>
+              .
+            </p>
+          ) : null}
         </section>
       </div>
     </main>
