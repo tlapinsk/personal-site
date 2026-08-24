@@ -11,7 +11,8 @@ describe("writing post data", () => {
     expect(writingPosts).toHaveLength(41);
     expect(writingPosts[0]).toMatchObject({
       slug: "my-first-product-bmw-e30",
-      dateLabel: "March 2, 2026",
+      title: "The $1 BMW - A Decade in the Making",
+      dateLabel: "August 24, 2026",
     });
   });
 
@@ -51,6 +52,23 @@ describe("writing post data", () => {
       "It’s been a while since I posted an update",
     );
     expect(migratedPost?.description).not.toMatch(/<[^>]+>|&#\d+;/);
+  });
+
+  it("adds estimated read times to every migrated historical post", () => {
+    const migratedPosts = writingPosts.filter((post) => post.contentHtml);
+
+    expect(migratedPosts).toHaveLength(40);
+    expect(migratedPosts.every((post) => post.readTimeLabel)).toBe(true);
+    expect(
+      migratedPosts.every((post) => /^\d+ mins?$/.test(post.readTimeLabel ?? "")),
+    ).toBe(true);
+    expect(
+      migratedPosts.find((post) => post.slug === "first-post")?.readTimeLabel,
+    ).toBe("4 mins");
+    expect(
+      migratedPosts.find((post) => post.slug === "final-project-update")
+        ?.readTimeLabel,
+    ).toBe("1 min");
   });
 
   it("does not contain duplicate slugs", () => {
