@@ -3,6 +3,7 @@ import LogoMark from "./components/LogoMark";
 import { writingPosts } from "./writing/posts";
 
 export default function Home() {
+  const featuredWritingPosts = writingPosts.slice(0, 5);
   const building = [
     {
       title: "Charles Schwab",
@@ -78,14 +79,14 @@ export default function Home() {
             <div className="space-y-6 text-[14px] leading-6 text-muted">
               <p>
                 Building at the intersection of financial services and AI at
-                Charles Schwab to rethink the brokerage experience and
-                accelerate GenAI application development.
+                Charles Schwab to reimagine the brokerage experience and
+                accelerate genuinely useful customer facing GenAI applications.
               </p>
               <p>
-                Previously built internal platforms at Bristol Myers Squibb,
-                specializing in agentic framework development and data +
-                knowledge platforms. Before that, I spent time as a full stack
-	                developer and data engineer at Amy&apos;s Kitchen supporting their
+                Previously led enterprise GenAI and research data platform products at Bristol Myers Squibb, 
+                  helping computational research teams find, understand, and use complex scientific data & 
+                  knowledge more effectively. In my early career, I spent time as a full stack
+	                developer and data engineer at Amy's Kitchen supporting their
 	                business operations. Started my career in Product working on
 	                the LINE mobile app and new bets.
 	              </p>
@@ -166,7 +167,7 @@ export default function Home() {
           <h2 className="text-sm font-semibold tracking-tight">Writing</h2>
 
           <div className="mt-4 space-y-2">
-            {writingPosts.map((post) => (
+            {featuredWritingPosts.map((post) => (
               <a
                 key={post.title}
                 href={`/writing/${post.slug}`}
@@ -181,7 +182,9 @@ export default function Home() {
                     className="shrink-0"
                   />
                 ) : (
-                  <div className="h-10 w-10 shrink-0 rounded-md bg-slate-100 ring-1 ring-border" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slate-100 text-[10px] font-medium text-slate-500 ring-1 ring-border dark:bg-neutral-900 dark:text-neutral-400">
+                    {new Date(post.date).getUTCFullYear()}
+                  </div>
                 )}
                 <div className="min-w-0">
                   <div className="text-[13px] font-medium text-foreground">

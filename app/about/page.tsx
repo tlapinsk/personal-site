@@ -8,7 +8,7 @@ export default function AboutPage() {
     {
       title: "Charles Schwab",
       href: "https://www.schwab.com/",
-      description: "Financial services + AI platform work.",
+      description: "Financial services + Conversational AI.",
     },
     // {
     //   title: "Bristol Myers Squibb",
@@ -106,12 +106,9 @@ export default function AboutPage() {
     {
       title: "Podcasts",
       items: [
+        { title: "Dwarkesh Podcast", href: "https://podcasts.apple.com/us/podcast/dwarkesh-podcast/id1516093381" },
         { title: "Founders", href: "https://podcasts.apple.com/us/podcast/founders/id1141877104" },
         { title: "Acquired", href: "https://podcasts.apple.com/us/podcast/acquired/id1050462261" },
-        {
-          title: "How I Built This",
-          href: "https://podcasts.apple.com/us/podcast/how-i-built-this-with-guy-raz/id1150510297",
-        },
       ],
     },
     {
@@ -153,15 +150,16 @@ export default function AboutPage() {
           <div className="mt-6 space-y-6 text-[13px] leading-6 text-muted">
             <p>
               Building at the intersection of financial services and AI at
-              Charles Schwab to rethink the brokerage experience and
-              accelerate GenAI application development.
+              Charles Schwab to reimagine the brokerage experience and
+              accelerate genuinely useful customer facing GenAI applications.
             </p>
             <p>
-              Previously built internal platforms at Bristol Myers Squibb,
-              specializing in agentic framework development and data +
-              knowledge platforms. Before that, I spent time as a full stack
-              developer and data engineer at Amy&apos;s Kitchen supporting business
-              operations.
+              Previously led enterprise GenAI and research data platform products at Bristol Myers Squibb, 
+              helping computational research teams find, understand, and use complex scientific data & 
+              knowledge more effectively. In my early career, I spent time as a full stack
+              developer and data engineer at Amy's Kitchen supporting their
+              business operations. Started my career in Product working on
+              the LINE mobile app and new bets.
             </p>
             <p>
               In 2016, I quit my job, packed my life into a 40L bag, 
