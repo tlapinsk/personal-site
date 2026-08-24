@@ -23,7 +23,7 @@ export default function WritingIndexPage() {
         <div className="mt-12 border-t border-border" />
 
         <div className="lg:relative">
-          <aside className="mt-10 rounded-xl border border-border bg-card p-4 shadow-sm lg:absolute lg:right-full lg:top-0 lg:mr-10 lg:mt-0 lg:w-[260px]">
+          <aside className="mt-10 rounded-xl border border-border bg-card p-4 shadow-sm lg:absolute lg:right-full lg:top-10 lg:mr-10 lg:mt-0 lg:w-[260px]">
             <h2 className="text-[12px] font-semibold uppercase tracking-[0.18em] text-muted">
               Archive
             </h2>
