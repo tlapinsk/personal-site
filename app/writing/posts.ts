@@ -8,6 +8,7 @@ export type WritingPost = {
   readTimeLabel?: string;
   description?: string;
   heroSrc?: string;
+  heroAspectRatio?: string;
   iconCandidates?: readonly string[];
   iconFallbackText?: string;
   body?: readonly string[];
@@ -111,6 +112,35 @@ function validateWritingPosts(posts: readonly WritingPost[]) {
 }
 
 export const writingPosts: readonly WritingPost[] = [
+  {
+    slug: "early-days",
+    title: "Early days",
+    description: "Brakes, refreshing hoses, air intake",
+    date: "2026-10-03T00:00:00+00:00",
+    dateLabel: "October 3, 2026",
+    readTimeLabel: "2 mins",
+    heroSrc: "/writing/early-e30-pic-2.jpg",
+    heroAspectRatio: "4 / 3",
+    iconCandidates: ["/logos/bmw.png"],
+    iconFallbackText: "BMW",
+    contentHtml: `
+      <p>We took the car home using our friend's trailer. I remember the ride distinctly because my dad’s buddy had the oddest driving style. He would floor it and then let up on the gas on the whole ride home on highway 101. I had never experienced that before. I digress.</p>
+      <p>The car needed work. Cosmetically and under the hood. We started on the mechanical side to get the car running, passing smog, and re-registered. Getting it running again was our first goal. The most obvious areas that we needed to address were:</p>
+      <ol>
+        <li>Battery</li>
+        <li>Oil change</li>
+        <li>Brakes</li>
+        <li>Cracked rubber intake (original 1985 rubber was 20+ years old!)</li>
+        <li>New tires</li>
+      </ol>
+      <p>The most distinct issue that I remember during this time period was the rubber intake. This piece was causing all sorts of issues since air was escaping when pressing down on the accelerator. We got our order in at <a href="http://pelicanparts.com" target="_blank" rel="noreferrer noopener">pelicanparts.com</a> and got to work.</p>
+      <p>I’m having trouble recollecting the exact order of the work but remember getting the car up and running again with relatively few issues. We got the car smogged and then finally took it to the DMV to get the title officially transferred and re-registered. The DMV was maybe a 10 minute car ride from our house.</p>
+      <p>After spending an inordinate amount of time at the DMV, we had everything we needed to be on our way. And on our trip home, we ran into our next major problem. As I pulled up to a stop sign and pressed in the clutch, the pedal got stuck to the floor. I couldn’t get it into gear, nor accelerate. My dad had me pull over and we quickly switched spots.</p>
+      <p>He somehow got it into second gear and was able to feather the clutch out to baby our way home. The seal on the slave cylinder had ruptured. That became our next big project along with a long list of miscellaneous upgrades.</p>
+      <p>The car was finally nearing baseline just as I was gearing up for my drivers test. Timing couldn’t have been any better. While I didn’t use the car for my drivers test, it was ready for my first when I finally passed my test. I couldn’t have been any more stoked to have a car (so fortunate) and the freedom to spend time with friends, get to school/work, etc.</p>
+      <p>Little did I know that this was just the beginning of the story for the car. More to come soon.</p>
+    `,
+  },
   {
     slug: "my-first-product-bmw-e30",
     title: "The $1 BMW - A Decade in the Making",

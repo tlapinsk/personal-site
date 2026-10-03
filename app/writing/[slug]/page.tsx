@@ -108,7 +108,8 @@ export default async function WritingPostPage({
             <img
               src={post.heroSrc}
               alt=""
-              className="mt-8 aspect-[16/9] w-full rounded-xl object-cover ring-1 ring-border"
+              className="mt-8 w-full rounded-xl object-cover ring-1 ring-border"
+              style={{ aspectRatio: post.heroAspectRatio ?? "16 / 9" }}
             />
           ) : null}
 
