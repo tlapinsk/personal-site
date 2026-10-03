@@ -8,10 +8,10 @@ export default function Home() {
     {
       title: "Charles Schwab",
       description:
-        "Rethinking the brokerage experience and leading AI Platform development.",
+        "Shipped Charley. Schwab's first ever AI-powered assistant.",
       href: "#selected-work",
       cta: "Learn more",
-      ctaHref: "https://www.schwab.com/",
+      ctaHref: "https://pressroom.aboutschwab.com/press-releases/press-release/2026/Meet-Charley-Schwabs-New-AI-Powered-Assistant-Designed-to-Help-Clients-Get-Answers-and-Take-Action/default.aspx",
       logoCandidates: [
         "/logos/charles-schwab.png",
         "/logos/charles-schwab.jpg",

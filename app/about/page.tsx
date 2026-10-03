@@ -8,7 +8,7 @@ export default function AboutPage() {
     {
       title: "Charles Schwab",
       href: "https://www.schwab.com/",
-      description: "Financial services + Conversational AI.",
+      description: "Charley and platform capabilities (agents, evals, orchestration, and more) for AI-powered brokerage experiences.",
     },
     // {
     //   title: "Bristol Myers Squibb",

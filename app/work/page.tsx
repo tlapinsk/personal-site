@@ -9,9 +9,9 @@ export default function WorkPage() {
       title: "Charles Schwab",
       role: "Product",
       description:
-        "GenAI Brokerage Experience & AI Platform: Rebuilding the brokerage experience and accelerating safe GenAI application development.",
-      href: "https://www.schwabjobs.com/technology",
-      imageSrc: "/work/schwab-logo.jpeg",
+        "Shipped Charley. Schwab's first ever AI-powered assistant. Charley is a conversational AI assistant that helps clients get answers and take action across Schwab's brokerage platform.",
+      href: "https://pressroom.aboutschwab.com/press-releases/press-release/2026/Meet-Charley-Schwabs-New-AI-Powered-Assistant-Designed-to-Help-Clients-Get-Answers-and-Take-Action/default.aspx",
+      imageSrc: "/work/Charley-PR-Graphic-5.png",
       imageFit: "cover",
     },
     {
@@ -23,6 +23,15 @@ export default function WorkPage() {
       imageSrc: "/work/Research_principles_AI.jpeg",
       imageFit: "contain",
     },
+    {
+      title: "Bounce at LINE",
+      role: "Product",
+      description:
+        "Worked on Bounce, a real-time wait-time app developed at LINE to help people plan visits around crowds.",
+      href: "https://line.me/",
+      imageSrc: "/work/bounce-logo.jpg",
+      imageFit: "contain",
+    },
   ] as const;
 
   return (
@@ -32,12 +41,7 @@ export default function WorkPage() {
           <h1 className="text-2xl font-semibold tracking-tight">Select Work</h1>
           <div className="mt-6 space-y-4 text-[13px] leading-6 text-muted">
             <p>
-              Rethinking the Schwab brokerage experience with GenAI and crafting
-              the company&apos;s AI platform vision & strategy.
-            </p>
-            <p>
-              Focused on building novel product experiences and helping developers become more productive. 
-              Shipping products that customers and teams actually adopt.
+              Select work from my career as a product manager and software engineer, spanning early-stage startups to large enterprises, and from consumer to enterprise software.
             </p>
             <p>Interested in learning more?</p>
           </div>
