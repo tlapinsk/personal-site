@@ -8,13 +8,18 @@ import {
 
 describe("writing post data", () => {
   it("includes the current essay and migrated WordPress posts", () => {
-    expect(writingPosts).toHaveLength(42);
+    expect(writingPosts).toHaveLength(43);
     expect(writingPosts[0]).toMatchObject({
+      slug: "inspiration-and-vision-for-the-car-r3vlimited",
+      title: "Inspiration and vision for the car (r3vlimited)",
+      dateLabel: "October 10, 2026",
+    });
+    expect(writingPosts[1]).toMatchObject({
       slug: "early-days",
       title: "Early days",
       dateLabel: "October 3, 2026",
     });
-    expect(writingPosts[1]).toMatchObject({
+    expect(writingPosts[2]).toMatchObject({
       slug: "my-first-product-bmw-e30",
       title: "The $1 BMW - A Decade in the Making",
       dateLabel: "August 24, 2026",
@@ -37,7 +42,7 @@ describe("writing post data", () => {
         writingArchive.map((group) => [group.year, group.posts.length]),
       ),
     ).toEqual({
-      "2026": 2,
+      "2026": 3,
       "2018": 4,
       "2017": 22,
       "2016": 14,

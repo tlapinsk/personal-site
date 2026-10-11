@@ -107,7 +107,7 @@ export default async function WritingPostPage({
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={post.heroSrc}
-              alt=""
+              alt={post.heroAlt ?? ""}
               className="mt-8 w-full rounded-xl object-cover ring-1 ring-border"
               style={{ aspectRatio: post.heroAspectRatio ?? "16 / 9" }}
             />
