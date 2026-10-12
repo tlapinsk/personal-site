@@ -1,3 +1,4 @@
+import { musingsOnMuseHtml } from "./musings-on-muse";
 import wordpressPostsJson from "./wordpress-posts.json";
 
 export type WritingPost = {
@@ -114,6 +115,21 @@ function validateWritingPosts(posts: readonly WritingPost[]) {
 
 export const writingPosts: readonly WritingPost[] = [
   {
+    slug: "musings-on-muse",
+    title: "Musings on Muse",
+    description:
+      "First impressions of Muse: onboarding, personal agents, memory, and where AI assistants might be headed.",
+    date: "2026-10-11T00:00:00+00:00",
+    dateLabel: "October 11, 2026",
+    readTimeLabel: toReadTimeLabel(musingsOnMuseHtml),
+    heroSrc: "/writing/2026-10-11/meta-muse.jpeg",
+    heroAlt: "Jolly, Muse’s smiling mascot, waving outside a building",
+    heroAspectRatio: "3 / 2",
+    iconCandidates: ["/logos/meta.svg"],
+    iconFallbackText: "Meta",
+    contentHtml: musingsOnMuseHtml,
+  },
+  {
     slug: "inspiration-and-vision-for-the-car-r3vlimited",
     title: "Inspiration and vision for the car (r3vlimited)",
     description:
@@ -121,7 +137,7 @@ export const writingPosts: readonly WritingPost[] = [
     date: "2026-10-10T00:00:00+00:00",
     dateLabel: "October 10, 2026",
     readTimeLabel: "1 min",
-    heroSrc: "/writing/1990_325is_header.jpg",
+    heroSrc: "/writing/2026-10-10/1990_325is_header.jpg",
     heroAlt: "White BMW E30 325is with its hood open in a parking lot",
     heroAspectRatio: "16 / 9",
     iconCandidates: ["/logos/bmw.png"],
@@ -138,11 +154,11 @@ export const writingPosts: readonly WritingPost[] = [
       <p>The attention to detail. The care. The ability to have the patience to continue these builds over many years was inspiring to say the least. Some of those threads span 50+ pages. Everyone had their own unique spin on an E30 as well. Some paying homage to the original car – others finding a path to an elegant OEM+ build.</p>
       <p>I mean just look at this before and after:</p>
       <figure>
-        <img src="/writing/1990_325is_before.jpg" alt="Before: white BMW E30 325is parked in a driveway before restoration" width="1024" height="768" loading="lazy" class="w-full" />
+        <img src="/writing/2026-10-10/1990_325is_before.jpg" alt="Before: white BMW E30 325is parked in a driveway before restoration" width="1024" height="768" loading="lazy" class="w-full" />
         <figcaption class="mt-2 text-[12px] text-muted">Before</figcaption>
       </figure>
       <figure>
-        <img src="/writing/1990_325is_after.jpg" alt="After: restored white BMW E30 325is with mesh wheels and body-color trim" width="1024" height="768" loading="lazy" class="w-full" />
+        <img src="/writing/2026-10-10/1990_325is_after.jpg" alt="After: restored white BMW E30 325is with mesh wheels and body-color trim" width="1024" height="768" loading="lazy" class="w-full" />
         <figcaption class="mt-2 text-[12px] text-muted">After</figcaption>
       </figure>
       <p>Going through R3V in 2026 is nostalgic. I just spent hours going through some of the builds above. Makes me miss those days and grateful to have been part of the community. Anyway, enough nostalgia for tonight. More of the story to come soon.</p>
@@ -155,7 +171,7 @@ export const writingPosts: readonly WritingPost[] = [
     date: "2026-10-03T00:00:00+00:00",
     dateLabel: "October 3, 2026",
     readTimeLabel: "2 mins",
-    heroSrc: "/writing/early-e30-pic-2.jpg",
+    heroSrc: "/writing/2026-10-03/early-e30-pic-2.jpg",
     heroAspectRatio: "4 / 3",
     iconCandidates: ["/logos/bmw.png"],
     iconFallbackText: "BMW",
@@ -185,7 +201,7 @@ export const writingPosts: readonly WritingPost[] = [
     date: "2026-08-24T00:00:00+00:00",
     dateLabel: "August 24, 2026",
     readTimeLabel: "2 mins",
-    heroSrc: "/writing/bmw-e30-hero.jpg",
+    heroSrc: "/writing/2026-08-24/bmw-e30-hero.jpg",
     iconCandidates: [
       "/logos/bmw.png",
     ],

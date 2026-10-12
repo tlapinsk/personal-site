@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { existsSync, readdirSync } from "node:fs";
+import path from "node:path";
 
 import {
   archivedWritingPosts,
@@ -8,18 +10,23 @@ import {
 
 describe("writing post data", () => {
   it("includes the current essay and migrated WordPress posts", () => {
-    expect(writingPosts).toHaveLength(43);
+    expect(writingPosts).toHaveLength(44);
     expect(writingPosts[0]).toMatchObject({
+      slug: "musings-on-muse",
+      title: "Musings on Muse",
+      dateLabel: "October 11, 2026",
+    });
+    expect(writingPosts[1]).toMatchObject({
       slug: "inspiration-and-vision-for-the-car-r3vlimited",
       title: "Inspiration and vision for the car (r3vlimited)",
       dateLabel: "October 10, 2026",
     });
-    expect(writingPosts[1]).toMatchObject({
+    expect(writingPosts[2]).toMatchObject({
       slug: "early-days",
       title: "Early days",
       dateLabel: "October 3, 2026",
     });
-    expect(writingPosts[2]).toMatchObject({
+    expect(writingPosts[3]).toMatchObject({
       slug: "my-first-product-bmw-e30",
       title: "The $1 BMW - A Decade in the Making",
       dateLabel: "August 24, 2026",
@@ -42,7 +49,7 @@ describe("writing post data", () => {
         writingArchive.map((group) => [group.year, group.posts.length]),
       ),
     ).toEqual({
-      "2026": 3,
+      "2026": 4,
       "2018": 4,
       "2017": 22,
       "2016": 14,
@@ -85,5 +92,27 @@ describe("writing post data", () => {
     const slugs = writingPosts.map((post) => post.slug);
 
     expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it("resolves every local post image with exact filename casing", () => {
+    for (const post of writingPosts) {
+      const images = [
+        post.heroSrc,
+        ...(post.iconCandidates ?? []),
+        ...Array.from(
+          (post.contentHtml ?? "").matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi),
+          (match) => match[1],
+        ),
+      ].filter((src): src is string => !!src && src.startsWith("/") && !src.startsWith("//"));
+
+      for (const src of images) {
+        let directory = path.join(process.cwd(), "public");
+        for (const segment of src.slice(1).split("/")) {
+          expect(readdirSync(directory), `${post.slug}: ${src}`).toContain(segment);
+          directory = path.join(directory, segment);
+        }
+        expect(existsSync(directory), `${post.slug}: ${src}`).toBe(true);
+      }
+    }
   });
 });

@@ -63,6 +63,78 @@ a:hover {
   margin-top: 1.5rem;
 }
 
+.wp-post-content h2 {
+  margin-top: 3rem;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.wp-post-content .post-screenshot {
+  width: 100%;
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+.wp-post-content .post-screenshot--wide {
+  max-width: none;
+}
+
+.post-screenshot a,
+.post-screenshot img {
+  display: block;
+  width: 100%;
+}
+
+.post-screenshot figcaption,
+.post-gallery-help {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.post-screenshot figcaption {
+  text-align: center;
+}
+
+.post-gallery-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  margin-top: 1rem;
+  padding: 0.25rem 0.25rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.wp-post-content .post-gallery-track .post-screenshot {
+  flex: 0 0 min(85%, 320px);
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.post-gallery-track:focus-visible,
+.post-screenshot a:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 4px;
+}
+
+.post-principles {
+  border-left: 3px solid var(--foreground);
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding: 1.5rem;
+  background: var(--card-muted);
+  color: var(--foreground);
+  font-size: 1rem;
+}
+
+.post-principles p + p {
+  margin-top: 0.75rem;
+}
+
 .wp-post-content a {
   color: var(--foreground);
   text-decoration-line: underline;
